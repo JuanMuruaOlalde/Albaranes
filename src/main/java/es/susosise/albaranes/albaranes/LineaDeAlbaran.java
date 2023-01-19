@@ -10,12 +10,17 @@ import es.susosise.albaranes.articulos.Articulo;
 
 @Entity
 @Table(name = "albaranes_lineas")
-public class AlbaranLinea {
+public class LineaDeAlbaran {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idInterno;
 
     Articulo articulo;
     Integer cantidad;
+    
+    public LineaDeAlbaran(Articulo articulo, Integer cantidad) {
+        this.articulo = articulo;
+        this.cantidad = cantidad;
+    }
 
 }

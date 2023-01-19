@@ -6,4 +6,10 @@ public class CoordenadasGPS {
     // https://en.wikipedia.org/wiki/Discrete_global_grid#Geocode_variants
     String latitud;
     String longitud;
+
+    public CoordenadasGPS(String latitud, String longitud) {
+        this.latitud = latitud;
+        this.longitud = longitud;
+    }
+
 }

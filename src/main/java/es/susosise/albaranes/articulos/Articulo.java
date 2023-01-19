@@ -1,7 +1,5 @@
 package es.susosise.albaranes.articulos;
 
-import java.util.UUID;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,11 +13,13 @@ public class Articulo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idInterno;
 
-    @GeneratedValue(strategy = GenerationType.UUID)
-    UUID idPublico;
-
-    String codigo;
+    String codigoDeArticulo;
     String nombreCorto;
     String descripcionLarga;
+    public Articulo(String codigo, String nombreCorto, String descripcionLarga) {
+        this.codigoDeArticulo = codigo;
+        this.nombreCorto = nombreCorto;
+        this.descripcionLarga = descripcionLarga;
+    }
 
 }

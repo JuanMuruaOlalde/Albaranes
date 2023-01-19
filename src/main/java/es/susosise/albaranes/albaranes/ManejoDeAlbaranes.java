@@ -1,5 +1,7 @@
 package es.susosise.albaranes.albaranes;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,14 +9,22 @@ import org.springframework.stereotype.Service;
 public class ManejoDeAlbaranes {
 
     @Autowired
-    AlbaranCabecera_persistencia cabeceras;
+    Albaran_persistencia albaranes;
 
     @Autowired
-    AlbaranLinea_persistencia lineas;
+    LineaDeAlbaran_persistencia lineas;
 
-    public ManejoDeAlbaranes(AlbaranCabecera_persistencia cabeceras, AlbaranLinea_persistencia lineas) {
-        this.cabeceras = cabeceras;
+    public ManejoDeAlbaranes(Albaran_persistencia cabeceras, LineaDeAlbaran_persistencia lineas) {
+        this.albaranes = cabeceras;
         this.lineas = lineas;
+    }
+
+    public Optional<Albaran> getAlbaran(String numeroDeAlbaran) {
+         return albaranes.findByNumeroDeAlbaran(numeroDeAlbaran);
+    }
+
+    public void guardar(Albaran unAlbaran) {
+        albaranes.save(unAlbaran);
     }
 
 }

@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Table(name = "clientes")
@@ -16,13 +15,30 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idInterno;
 
-    @GeneratedValue(strategy = GenerationType.UUID)
-    UUID idPublico;
-
     String nombre;
-
     PuntoDeEntrega razonSocialPrincipal;
-
     List<PuntoDeEntrega> puntosDeEntrega;
+
+    public Cliente(String nombre, PuntoDeEntrega razonSocialPrincipal, List<PuntoDeEntrega> puntosDeEntrega) {
+        this.nombre = nombre;
+        this.razonSocialPrincipal = razonSocialPrincipal;
+        this.puntosDeEntrega = puntosDeEntrega;
+    }
+
+    public Long getIdInterno() {
+        return idInterno;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public PuntoDeEntrega getRazonSocialPrincipal() {
+        return razonSocialPrincipal;
+    }
+
+    public List<PuntoDeEntrega> getPuntosDeEntrega() {
+        return puntosDeEntrega;
+    }
 
 }
