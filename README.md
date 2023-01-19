@@ -1,5 +1,10 @@
 # Albaranes
  
-Es simplemente una muestra de código... ...que dejo aquí por si a alguien pudiera serle de alguna utilidad.
+Una prueba para experimentar con datos enlazados entre si.
+* Cada albarán tiene una cabecera y unas cuantas lineas.
+* Las cabeceras el albarán tienen datos acerca del cliente y del punto de entrega.
+* Las líneas de albarán tienen datos acerca de artículos y cantidades.
 
-[![Esquema general de la arquitectura interna de MeteoAPI](/Albaranes/documentacion/Esquema_general_de_la_arquitectura_interna.drawio.png)](https://github.com/JuanMuruaOlalde/Albaranes/blob/main/MeteoAPI/documentacion/Esquema_general_de_la_arquitectura_interna.drawio.png)
+## Esquema general
+![Esquema general de la arquitectura interna](/documentacion/Esquema_general_de_la_arquitectura_interna.drawio.png)
+
