@@ -1,11 +1,12 @@
 package es.susosise.albaranes.albaranes;
 
-import es.susosise.albaranes.articulos.Articulo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import es.susosise.albaranes.articulos.Articulo;
 
 @Entity
 @Table(name = "albaranes_lineas")
@@ -15,6 +16,6 @@ public class AlbaranLinea {
     private Long idInterno;
 
     Articulo articulo;
-    Double cantidad;
+    Integer cantidad;
 
 }
