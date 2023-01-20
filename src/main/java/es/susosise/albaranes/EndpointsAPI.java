@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import es.susosise.albaranes.albaranes.ManejoDeAlbaranes;
+import es.susosise.albaranes.albaranes.ManejoDeAlbaranesParaPruebas;
 import es.susosise.albaranes.clientes.ManejoDeClientes;
+import es.susosise.albaranes.albaranes.Albaran;
 import es.susosise.albaranes.albaranes.Albaran_dto;
 
 @RestController
@@ -21,6 +23,6 @@ public class EndpointsAPI {
     public Albaran_dto enviarDatosDeUnAlbaran(@PathVariable String id) {
         // TODO _pendiente completar esta funcion para realmente enviar el albaran
         // solicitado.
-        return new Albaran_dto();
+        return new Albaran_dto(ManejoDeAlbaranesParaPruebas.getAlbaranDePrueba(42));
     }
 }

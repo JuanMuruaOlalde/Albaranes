@@ -27,11 +27,13 @@
           <td th:text="${albaran.numeroDeAlbaran}"/>
           <td th:text="${albaran.cliente.nombre}" />
           <td th:text="${albaran.destino.poblacion}" />
+          <td><button type="button" th:onclick="mostrarDetallesDelAlbaran([[${albaran}]])"/>Mostrar detalles</td>
         </tr>
       </table>
     </main>
 
     <hr />
     <nav></nav>
+    <script th:src="@{js/index.js}"></script>
   </body>
 </html>
