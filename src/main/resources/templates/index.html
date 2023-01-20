@@ -17,7 +17,19 @@
       <h1>Albaranes</h1>
     </header>
 
-    <main></main>
+    <main>
+      <h2>Ultimos albaranes registrados</h2>
+      <table>
+        <thead>
+          <th>numero</th><th>cliente</th><th>para entregar en</th>
+        </thead>
+        <tr th:each="albaran : ${albaranes}">
+          <td th:text="${albaran.numeroDeAlbaran}"/>
+          <td th:text="${albaran.cliente.nombre}" />
+          <td th:text="${albaran.destino.poblacion}" />
+        </tr>
+      </table>
+    </main>
 
     <hr />
     <nav></nav>
