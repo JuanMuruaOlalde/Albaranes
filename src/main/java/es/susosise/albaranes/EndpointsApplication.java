@@ -20,14 +20,21 @@ public class EndpointsApplication {
     @Autowired
     ManejoDeAlbaranes albaranes;
 
+    @GetMapping("/directos")
+    public String mostrarPaginaPrincipal_conDirectos(Model model) {
+        Page<Albaran> ultimosAlbaranes = albaranes.getUltimosAlbaranes(10);
+        model.addAttribute("albaranes", ultimosAlbaranes.toList());
+        return "index";
+    }
+
     @GetMapping("/")
     public String mostrarPaginaPrincipal(Model model) {
         Page<Albaran> ultimosAlbaranes = albaranes.getUltimosAlbaranes(10);
-        // ArrayList<Albaran_dto> albaranes_dto = new ArrayList<>();
-        // for(Albaran albaran : ultimosAlbaranes.toList()){
-        //     albaranes_dto.add(new Albaran_dto(albaran));
-        // }
-        model.addAttribute("albaranes", ultimosAlbaranes.toList());
+        ArrayList<Albaran_dto> albaranes_dto = new ArrayList<>();
+        for (Albaran albaran : ultimosAlbaranes.toList()) {
+            albaranes_dto.add(new Albaran_dto(albaran));
+        }
+        model.addAttribute("albaranes", albaranes_dto);
         return "index";
     }
 

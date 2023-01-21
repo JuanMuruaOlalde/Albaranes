@@ -14,7 +14,6 @@ import es.susosise.albaranes.clientes.Cliente;
 import es.susosise.albaranes.clientes.ManejoDeClientes;
 import es.susosise.albaranes.clientes.ManejoDeClientesParaPruebas;
 
-
 @SpringBootApplication
 public class AlbaranesApplication {
 
@@ -22,12 +21,11 @@ public class AlbaranesApplication {
 		SpringApplication.run(AlbaranesApplication.class, args);
 	}
 
-
 	@Bean
 	public CommandLineRunner llenarLaBaseDeDatosConDatosParaPruebas(
-		ManejoDeAlbaranes albaranes,	
-		ManejoDeClientes clientes,
-		ManejoDeArticulos articulos){
+			ManejoDeAlbaranes albaranes,
+			ManejoDeClientes clientes,
+			ManejoDeArticulos articulos) {
 		return args -> {
 			Albaran albaran01 = ManejoDeAlbaranesParaPruebas.getAlbaranDePrueba(1);
 			if (albaranes.getAlbaran(albaran01.getNumeroDeAlbaran()).isEmpty()) {

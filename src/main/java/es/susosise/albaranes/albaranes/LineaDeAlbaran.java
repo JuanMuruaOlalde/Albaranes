@@ -6,7 +6,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -21,13 +20,11 @@ public class LineaDeAlbaran {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     Articulo articulo;
+
     Integer cantidad;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "albaran_idInterno", nullable = false)
-    private Albaran albaran;
-    
-    public LineaDeAlbaran() {}
+    public LineaDeAlbaran() {
+    }
 
     public LineaDeAlbaran(Articulo articulo, Integer cantidad) {
         this.articulo = articulo;
@@ -46,10 +43,6 @@ public class LineaDeAlbaran {
         return cantidad;
     }
 
-    public Albaran getAlbaran() {
-        return albaran;
-    }
-
     public void setIdInterno(Long idInterno) {
         this.idInterno = idInterno;
     }
@@ -60,10 +53,6 @@ public class LineaDeAlbaran {
 
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
-    }
-
-    public void setAlbaran(Albaran albaran) {
-        this.albaran = albaran;
     }
 
     @Override
@@ -99,11 +88,6 @@ public class LineaDeAlbaran {
             if (other.cantidad != null)
                 return false;
         } else if (!cantidad.equals(other.cantidad))
-            return false;
-        if (albaran == null) {
-            if (other.albaran != null)
-                return false;
-        } else if (!albaran.equals(other.albaran))
             return false;
         return true;
     }

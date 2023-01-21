@@ -2,6 +2,9 @@ package es.susosise.albaranes.clientes;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,13 +30,14 @@ public class PuntoDeEntrega {
     String pisoYmano;
 
     String telefonoDeContacto;
-    //CoordenadasGPS coordenadas;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "cliente_idInterno", nullable = false)
+    @JsonBackReference
     private Cliente cliente;
 
-    public PuntoDeEntrega() {}
+    public PuntoDeEntrega() {
+    }
 
     public PuntoDeEntrega(String aliasIdentificativo, Poblacion poblacion, String zonaOpoligono,
             String calle, String portal, String pisoYmano, String telefonoDeContacto) {
@@ -44,7 +48,6 @@ public class PuntoDeEntrega {
         this.portal = portal;
         this.pisoYmano = pisoYmano;
         this.telefonoDeContacto = telefonoDeContacto;
-        //this.coordenadas = coordenadas;
     }
 
     @Override
@@ -56,45 +59,33 @@ public class PuntoDeEntrega {
         return idInterno;
     }
 
-
     public String getAliasIdentificativo() {
         return aliasIdentificativo;
     }
-
 
     public Poblacion getPoblacion() {
         return poblacion;
     }
 
-
     public String getZonaOpoligono() {
         return zonaOpoligono;
     }
-
 
     public String getCalle() {
         return calle;
     }
 
-
     public String getPortal() {
         return portal;
     }
-
 
     public String getPisoYmano() {
         return pisoYmano;
     }
 
-
     public String getTelefonoDeContacto() {
         return telefonoDeContacto;
     }
-
-
-    // public CoordenadasGPS getCoordenadas() {
-    //     return coordenadas;
-    // }
 
     public Cliente getCliente() {
         return cliente;
@@ -104,46 +95,37 @@ public class PuntoDeEntrega {
         this.idInterno = idInterno;
     }
 
-
     public void setAliasIdentificativo(String aliasIdentificativo) {
         this.aliasIdentificativo = aliasIdentificativo;
     }
-
 
     public void setPoblacion(Poblacion poblacion) {
         this.poblacion = poblacion;
     }
 
-
     public void setZonaOpoligono(String zonaOpoligono) {
         this.zonaOpoligono = zonaOpoligono;
     }
-
 
     public void setCalle(String calle) {
         this.calle = calle;
     }
 
-
     public void setPortal(String portal) {
         this.portal = portal;
     }
-
 
     public void setPisoYmano(String pisoYmano) {
         this.pisoYmano = pisoYmano;
     }
 
-
     public void setTelefonoDeContacto(String telefonoDeContacto) {
         this.telefonoDeContacto = telefonoDeContacto;
     }
 
-
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
 
     @Override
     public int hashCode() {
@@ -157,10 +139,8 @@ public class PuntoDeEntrega {
         result = prime * result + ((portal == null) ? 0 : portal.hashCode());
         result = prime * result + ((pisoYmano == null) ? 0 : pisoYmano.hashCode());
         result = prime * result + ((telefonoDeContacto == null) ? 0 : telefonoDeContacto.hashCode());
-        //result = prime * result + ((coordenadas == null) ? 0 : coordenadas.hashCode());
         return result;
     }
-
 
     @Override
     public boolean equals(Object obj) {
@@ -211,11 +191,6 @@ public class PuntoDeEntrega {
                 return false;
         } else if (!telefonoDeContacto.equals(other.telefonoDeContacto))
             return false;
-        // if (coordenadas == null) {
-        //     if (other.coordenadas != null)
-        //         return false;
-        // } else if (!coordenadas.equals(other.coordenadas))
-        //     return false;
         if (cliente == null) {
             if (other.cliente != null)
                 return false;

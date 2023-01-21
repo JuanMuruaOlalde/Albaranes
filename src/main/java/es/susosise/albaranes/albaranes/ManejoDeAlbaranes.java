@@ -15,16 +15,12 @@ public class ManejoDeAlbaranes {
     @Autowired
     Albaran_persistencia albaranes;
 
-    @Autowired
-    LineaDeAlbaran_persistencia lineas;
-
-    public ManejoDeAlbaranes(Albaran_persistencia cabeceras, LineaDeAlbaran_persistencia lineas) {
+    public ManejoDeAlbaranes(Albaran_persistencia cabeceras) {
         this.albaranes = cabeceras;
-        this.lineas = lineas;
     }
 
     public Optional<Albaran> getAlbaran(String numeroDeAlbaran) {
-         return albaranes.findByNumeroDeAlbaran(numeroDeAlbaran);
+        return albaranes.findByNumeroDeAlbaran(numeroDeAlbaran);
     }
 
     public Page<Albaran> getUltimosAlbaranes(int cuantos) {

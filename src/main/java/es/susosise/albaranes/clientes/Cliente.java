@@ -13,6 +13,8 @@ import jakarta.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "clientes")
 public class Cliente {
@@ -22,13 +24,15 @@ public class Cliente {
 
     String nombre;
 
-    @OneToOne(mappedBy= "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @OneToOne(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     PuntoDeEntrega razonSocialPrincipal;
-    
-    @OneToMany(mappedBy= "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     Set<PuntoDeEntrega> otrosPuntosDeEntrega;
 
-    public Cliente() {}
+    public Cliente() {
+    }
 
     public Cliente(String nombre, PuntoDeEntrega razonSocialPrincipal) {
         this.nombre = nombre;
@@ -40,7 +44,6 @@ public class Cliente {
     public String toString() {
         return nombre;
     }
-
 
     public Long getIdInterno() {
         return idInterno;
@@ -77,6 +80,7 @@ public class Cliente {
     public void añadirUnPuntoDeEntrega(PuntoDeEntrega punto) {
         this.otrosPuntosDeEntrega.add(punto);
     }
+
     public void quitarUnPuntoDeEntrega(PuntoDeEntrega punto) {
         this.otrosPuntosDeEntrega.remove(punto);
     }
@@ -124,5 +128,4 @@ public class Cliente {
         return true;
     }
 
- 
 }

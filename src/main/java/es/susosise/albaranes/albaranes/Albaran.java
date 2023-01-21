@@ -12,7 +12,6 @@ import jakarta.persistence.Table;
 
 import java.util.Set;
 
-
 import es.susosise.albaranes.clientes.Cliente;
 import es.susosise.albaranes.clientes.PuntoDeEntrega;
 
@@ -30,11 +29,12 @@ public class Albaran {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
     PuntoDeEntrega destino;
-    
-    @OneToMany(mappedBy = "albaran", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     Set<LineaDeAlbaran> lineas;
 
-    public Albaran(){}
+    public Albaran() {
+    }
 
     public Albaran(String numeroDeAlbaran, Cliente cliente, PuntoDeEntrega destino, Set<LineaDeAlbaran> lineas) {
         this.numeroDeAlbaran = numeroDeAlbaran;
