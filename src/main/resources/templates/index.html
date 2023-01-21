@@ -9,7 +9,7 @@
     />
     <meta name="author" content="Juan Murua Olalde" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
@@ -21,13 +21,20 @@
       <h2>Ultimos albaranes registrados</h2>
       <table>
         <thead>
-          <th>numero</th><th>cliente</th><th>para entregar en</th>
+          <th>numero</th>
+          <th>cliente</th>
+          <th>para entregar en</th>
         </thead>
         <tr th:each="albaran : ${albaranes}">
-          <td th:text="${albaran.numeroDeAlbaran}"/>
+          <td th:text="${albaran.numeroDeAlbaran}" />
           <td th:text="${albaran.cliente.nombre}" />
           <td th:text="${albaran.destino.poblacion}" />
-          <td><button type="button" th:onclick="mostrarDetallesDelAlbaran([[${albaran}]])"/>Mostrar detalles</td>
+          <td>
+            <button
+              type="button"
+              th:onclick="mostrarDetallesDelAlbaran([[${albaran.cliente.nombre}]])"
+            />Mostrar detalles
+          </td>
         </tr>
       </table>
     </main>
