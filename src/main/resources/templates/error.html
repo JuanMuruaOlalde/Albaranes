@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pruebas_SpringBoot -ERROR-</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}" />
+  </head>
+
+  <body>
+    <h2>Se ha producido un error</h2>
+    <p><small>Fuente del error:</small> <span th:text="${error}"></span></p>
+    <p><small>Codigo de estado:</small> <span th:text="${status}"></span></p>
+    <p><small>Mensaje:</small> <span th:text="${message}"></span></p>
+    <p>Detalles:</p>
+    <small><p th:text="${trace}" /></small>
+  </body>
+</html>
