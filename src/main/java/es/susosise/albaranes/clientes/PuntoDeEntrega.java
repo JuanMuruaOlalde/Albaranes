@@ -3,8 +3,6 @@ package es.susosise.albaranes.clientes;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +20,7 @@ public class PuntoDeEntrega {
 
     String aliasIdentificativo;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     Poblacion poblacion;
     String zonaOpoligono;
     String calle;
@@ -32,8 +30,7 @@ public class PuntoDeEntrega {
     String telefonoDeContacto;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "cliente_idInterno", nullable = false)
-    @JsonBackReference
+    @JoinColumn(name = "clientes_idInterno", nullable = false)
     private Cliente cliente;
 
     public PuntoDeEntrega() {

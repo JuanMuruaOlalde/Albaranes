@@ -18,7 +18,7 @@ public class LineaDeAlbaran {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idInterno;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     Articulo articulo;
 
     Integer cantidad;

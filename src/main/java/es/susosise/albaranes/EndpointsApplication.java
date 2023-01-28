@@ -20,7 +20,7 @@ public class EndpointsApplication {
     @Autowired
     ManejoDeAlbaranes albaranes;
 
-    @GetMapping("/directos")
+    @GetMapping("/pruebadirecta")
     public String mostrarPaginaPrincipal_conDirectos(Model model) {
         Page<Albaran> ultimosAlbaranes = albaranes.getUltimosAlbaranes(10);
         model.addAttribute("albaranes", ultimosAlbaranes.toList());

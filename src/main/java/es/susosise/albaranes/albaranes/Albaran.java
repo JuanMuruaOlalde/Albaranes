@@ -24,10 +24,10 @@ public class Albaran {
 
     String numeroDeAlbaran;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     Cliente cliente;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     PuntoDeEntrega destino;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

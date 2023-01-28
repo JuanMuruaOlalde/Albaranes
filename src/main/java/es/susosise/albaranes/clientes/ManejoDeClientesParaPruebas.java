@@ -8,10 +8,10 @@ public class ManejoDeClientesParaPruebas {
         PuntoDeEntrega puntoDeEntregaPrincipal = getPuntoDeEntregaDePrueba(n);
         Cliente cliente = new Cliente(
                 "ClienteDePrueba" + n, puntoDeEntregaPrincipal);
+        for (PuntoDeEntrega punto : getUnParDeOtrosPuntosDeEntregaDePrueba((n))) {
+            cliente.añadirUnPuntoDeEntrega(punto);
+        }
         puntoDeEntregaPrincipal.setCliente(cliente);
-        // Por ahora no se le han añadido mas puntos de entrega
-        // y este for para procesarlos no seria necesario.
-        // Pero se deja aquí como recordatorio.
         for (PuntoDeEntrega punto : cliente.getOtrosPuntosDeEntrega()) {
             punto.setCliente(cliente);
         }
@@ -24,6 +24,23 @@ public class ManejoDeClientesParaPruebas {
                 "Calle " + n + " de Pruebas" + n, "N" + n, "P" + n + "izda",
                 n + n + n + "-" + n + n + "-" + n + n + "-" + n + n);
         // , new CoordenadasGPS(n + ".999999", (n+1) + ".888888")
+    }
+
+    public static HashSet<PuntoDeEntrega> getUnParDeOtrosPuntosDeEntregaDePrueba(int n) {
+        HashSet<PuntoDeEntrega> otrosPuntos = new HashSet<>();
+        PuntoDeEntrega punto01 = new PuntoDeEntrega(
+                "otro1aliasDePrueba" + n, getPoblacionDePrueba(n), "otro1Poligono " + n + " de Pruebas" + n,
+                "otra1Calle " + n + " de Pruebas" + n, "N" + n, "P" + n + "izda",
+                n + n + n + "-" + n + n + "-" + n + n + "-" + n + n);
+        // , new CoordenadasGPS(n + ".999999", (n+1) + ".888888")
+        otrosPuntos.add(punto01);
+        PuntoDeEntrega punto02 = new PuntoDeEntrega(
+                "otro2aliasDePrueba" + n, getPoblacionDePrueba(n), "otro2Poligono " + n + " de Pruebas" + n,
+                "otra2Calle " + n + " de Pruebas" + n, "N" + n, "P" + n + "izda",
+                n + n + n + "-" + n + n + "-" + n + n + "-" + n + n);
+        // , new CoordenadasGPS(n + ".999999", (n+1) + ".888888")
+        otrosPuntos.add(punto02);
+        return otrosPuntos;
     }
 
     public static Poblacion getPoblacionDePrueba(int n) {

@@ -8,7 +8,6 @@ public class PuntoDeEntrega_dto {
     private String portal;
     private String pisoYmano;
     private String telefonoDeContacto;
-    private String cliente;
 
     public PuntoDeEntrega_dto(PuntoDeEntrega unPunto) {
         this.aliasIdentificativo = unPunto.getAliasIdentificativo();
@@ -18,7 +17,6 @@ public class PuntoDeEntrega_dto {
         this.portal = unPunto.getPortal();
         this.pisoYmano = unPunto.getPisoYmano();
         this.telefonoDeContacto = unPunto.getTelefonoDeContacto();
-        this.cliente = unPunto.getCliente().nombre;
     }
 
     public String getAliasIdentificativo() {
@@ -47,10 +45,6 @@ public class PuntoDeEntrega_dto {
 
     public String getTelefonoDeContacto() {
         return telefonoDeContacto;
-    }
-
-    public String getCliente() {
-        return cliente;
     }
 
 }

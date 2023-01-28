@@ -16,8 +16,9 @@ public class Articulo {
     String codigoDeArticulo;
     String nombreCorto;
     String descripcionLarga;
-    
-    public Articulo() {}
+
+    public Articulo() {
+    }
 
     public Articulo(String codigo, String nombreCorto, String descripcionLarga) {
         this.codigoDeArticulo = codigo;

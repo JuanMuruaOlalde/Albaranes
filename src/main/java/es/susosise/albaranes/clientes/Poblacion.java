@@ -16,7 +16,8 @@ public class Poblacion {
     String nombre;
     String codigoPostal;
 
-    public Poblacion() {}
+    public Poblacion() {
+    }
 
     public Poblacion(String nombre, String codigoPostal) {
         this.nombre = nombre;

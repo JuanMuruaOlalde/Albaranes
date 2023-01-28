@@ -1,7 +1,6 @@
 package es.susosise.albaranes.albaranes;
 
 import java.util.HashSet;
-import java.util.Set;
 
 import es.susosise.albaranes.articulos.ManejoDeArticulosParaPruebas;
 import es.susosise.albaranes.clientes.Cliente;
@@ -17,7 +16,7 @@ public class ManejoDeAlbaranesParaPruebas {
         return albaran;
     }
 
-    public static Set<LineaDeAlbaran> getUnasCuantasLineasDePrueba(int n) {
+    public static HashSet<LineaDeAlbaran> getUnasCuantasLineasDePrueba(int n) {
         HashSet<LineaDeAlbaran> lineas = new HashSet<>();
         for (int i = 1; i < 6; i++) {
             lineas.add(new LineaDeAlbaran(ManejoDeArticulosParaPruebas.getArticuloDePruebas(n * 10 + i), 33));

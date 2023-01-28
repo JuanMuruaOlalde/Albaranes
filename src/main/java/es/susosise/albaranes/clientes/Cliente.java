@@ -13,8 +13,6 @@ import jakarta.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 @Entity
 @Table(name = "clientes")
 public class Cliente {
@@ -24,11 +22,10 @@ public class Cliente {
 
     String nombre;
 
-    @OneToOne(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @OneToOne(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     PuntoDeEntrega razonSocialPrincipal;
 
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonManagedReference
     Set<PuntoDeEntrega> otrosPuntosDeEntrega;
 
     public Cliente() {

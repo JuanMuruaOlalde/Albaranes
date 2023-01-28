@@ -2,18 +2,19 @@ package es.susosise.albaranes;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import es.susosise.albaranes.albaranes.ManejoDeAlbaranes;
-import es.susosise.albaranes.albaranes.ManejoDeAlbaranesParaPruebas;
 import es.susosise.albaranes.albaranes.Albaran;
 import es.susosise.albaranes.albaranes.Albaran_dto;
 
@@ -24,8 +25,13 @@ public class EndpointsAPI {
     ManejoDeAlbaranes albaranes;
 
     @GetMapping("/albaranes/ultimos/{cuantos}")
-    public List<Albaran> enviarDatosDeLosUltimosAlbaranes(@PathVariable int cuantos) {
-        return albaranes.getUltimosAlbaranes(cuantos).getContent();
+    public List<Albaran_dto> enviarDatosDeLosUltimosAlbaranes(@PathVariable int cuantos) {
+        Page<Albaran> ultimosAlbaranes = albaranes.getUltimosAlbaranes(cuantos);
+        ArrayList<Albaran_dto> albaranes_dto = new ArrayList<>();
+        for (Albaran albaran : ultimosAlbaranes.toList()) {
+            albaranes_dto.add(new Albaran_dto(albaran));
+        }
+        return albaranes_dto;
     }
 
     @GetMapping("/albaranes/{numeroDeAlbaran}")
@@ -36,18 +42,6 @@ public class EndpointsAPI {
         } else {
             throw new NoSuchElementException("No se ha encontrado el albarán " + numeroDeAlbaran);
         }
-    }
-
-    @GetMapping("/albaranes/pruebas/{n}")
-    public Albaran_dto enviarUnAlbaranDePrueba_usandoDTO(@PathVariable int n) {
-        Albaran albaranAEnviar = ManejoDeAlbaranesParaPruebas.getAlbaranDePrueba(n);
-        return new Albaran_dto(albaranAEnviar);
-    }
-
-    @GetMapping("/albaranes/pruebasdirectas/{n}")
-    public Albaran enviarUnAlbaranDePrueba_DIRECTO(@PathVariable int n) {
-        Albaran albaranAEnviar = ManejoDeAlbaranesParaPruebas.getAlbaranDePrueba(n);
-        return albaranAEnviar;
     }
 
 }
