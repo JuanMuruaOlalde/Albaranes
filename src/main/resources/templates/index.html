@@ -1,25 +1,55 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="utf-8" />
-    <title>Albaranes</title>
-    <meta
-      name="description"
-      content="Una pequeña aplicación para probar los enlaces entre tablas en Spring Boot."
-    />
-    <meta name="author" content="Juan Murua Olalde" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <title>Albaranes</title>
+        <meta name="description" content="Una pequeña aplicación para probar los enlaces entre tablas en Spring Boot." />
+        <meta name="author" content="Juan Murua Olalde" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
 
-  <body>
-    <header>
-      <h1>Albaranes</h1>
-    </header>
+    <body>
+        <header>
+            <h1>Albaranes</h1>
+        </header>
 
-    <main></main>
+        <main>
+            <h2>Ultimos albaranes registrados</h2>
+            <table>
+                <thead>
+                    <th>numero</th>
+                    <th>cliente</th>
+                    <th>para entregar en</th>
+                </thead>
+                <tr th:each="albaran : ${albaranes}">
+                    <td th:text="${albaran.numeroDeAlbaran}" />
+                    <td th:text="${albaran.cliente.nombre}" />
+                    <td th:text="${albaran.destino.poblacion}" />
+                    <td>
+                        <button type="button" th:onclick="mostrarDetallesDelAlbaran([[${albaran.numeroDeAlbaran}]])" />Mostrar
+                        detalles
+                    </td>
+                </tr>
+            </table>
+            <hr />
+            <p id="tituloDeLasLineasDeAlbaran">Albarán XXXXXX</p>
+            <table th:each="albaran : ${albaranes}" th:attr="id=${albaran.numeroDeAlbaran}" class="tablaAOcultar" hidden>
+                <thead>
+                    <th>codigo de artículo</th>
+                    <th>artículo</th>
+                    <th>cantidad</th>
+                </thead>
+                <tr th:each="linea : ${albaran.lineas}">
+                    <td th:text="${linea.articulo.codigoDeArticulo}" />
+                    <td th:text="${linea.articulo.nombreCorto}" />
+                    <td th:text="${linea.cantidad}" />
+                </tr>
+            </table>
+        </main>
 
-    <hr />
-    <nav></nav>
-  </body>
+        <hr />
+        <nav></nav>
+        <script th:src="@{js/index.js}"></script>
+    </body>
 </html>
