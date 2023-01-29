@@ -2,8 +2,11 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8" />
-        <title>Albaranes</title>
-        <meta name="description" content="Una pequeña aplicación para probar los enlaces entre tablas en Spring Boot." />
+        <title>Consulta de Albaranes (versión "página completa")</title>
+        <meta
+            name="description"
+            content="Consultar los últimos albaranes. Recibiendo la página completa, con todos los datos, directamente desde el servidor."
+        />
         <meta name="author" content="Juan Murua Olalde" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="css/style.css" />
@@ -49,7 +52,21 @@
         </main>
 
         <hr />
-        <nav></nav>
-        <script th:src="@{js/index.js}"></script>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html"
+                        ><button type="button">
+                            <img
+                                src="images/icons8-home-page-64.png"
+                                alt="Home icon, icono de casita"
+                                width="32"
+                                height="32"
+                            /></button
+                    ></a>
+                </li>
+            </ul>
+        </nav>
+        <script th:src="@{js/ConsultaConPaginaCompleta.js}"></script>
     </body>
 </html>

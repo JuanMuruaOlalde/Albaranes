@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <title>Consulta de Albaranes (versión "página dinámica")</title>
+        <meta
+            name="description"
+            content="Consultar los últimos albaranes. Usando javascript en la parte cliente para recuperar datos del servidor y actualizar la página."
+        />
+        <meta name="author" content="Juan Murua Olalde" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <header>
+            <h1>Albaranes</h1>
+        </header>
+
+        <main>
+            <h2>Ultimos albaranes registrados</h2>
+            <form id="frmObtenerAlbaranes" class="enmarcado_dentro_de_una_caja">
+                <p>
+                    <label for="cuantosAlbaranes"
+                        >Se van a listar los últimos:
+                        <input type="text" pattern="[0-9]?" id="cuantosAlbaranes" name="cuantosAlbaranes" size="8" required />
+                        albaranes.
+                    </label>
+                </p>
+                <p>
+                    <input type="submit" id="btnObtenerAlbaranes" value="Obtener albaranes" />
+                </p>
+            </form>
+            <table id="tablaDeLosAlbaranes">
+                <thead>
+                    <th>numero</th>
+                    <th>cliente</th>
+                    <th>para entregar en</th>
+                </thead>
+            </table>
+            <hr />
+            <p id="tituloDeLasLineasDeAlbaran">Albarán XXXXXX</p>
+            <table id="tablaDeLasLineasDeAlbaran">
+                <thead>
+                    <th>codigo de artículo</th>
+                    <th>artículo</th>
+                    <th>cantidad</th>
+                </thead>
+            </table>
+        </main>
+
+        <hr />
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html"
+                        ><button type="button">
+                            <img
+                                src="images/icons8-home-page-64.png"
+                                alt="Home icon, icono de casita"
+                                width="32"
+                                height="32"
+                            /></button
+                    ></a>
+                </li>
+            </ul>
+        </nav>
+        <script th:src="@{js/ConsultaConPaginaDinamica.js}"></script>
+    </body>
+</html>
