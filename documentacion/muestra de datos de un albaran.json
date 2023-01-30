@@ -1,0 +1,97 @@
+[
+  {
+    "numeroDeAlbaran": "Alb111111",
+    "cliente": {
+      "nombre": "ClienteDePrueba1",
+      "razonSocialPrincipal": {
+        "aliasIdentificativo": "otro1aliasDePrueba1",
+        "poblacion": "11111 - Pueblo 1 de Pruebas",
+        "zonaOpoligono": "otro1Poligono 1 de Pruebas1",
+        "calle": "otra1Calle 1 de Pruebas1",
+        "portal": "N1",
+        "pisoYmano": "P1izda",
+        "telefonoDeContacto": "3-11-11-11"
+      },
+      "otrosPuntosDeEntrega": [
+        {
+          "aliasIdentificativo": "otro2aliasDePrueba1",
+          "poblacion": "11111 - Pueblo 1 de Pruebas",
+          "zonaOpoligono": "otro2Poligono 1 de Pruebas1",
+          "calle": "otra2Calle 1 de Pruebas1",
+          "portal": "N1",
+          "pisoYmano": "P1izda",
+          "telefonoDeContacto": "3-11-11-11"
+        },
+        {
+          "aliasIdentificativo": "aliasDePrueba1",
+          "poblacion": "11111 - Pueblo 1 de Pruebas",
+          "zonaOpoligono": "Poligono 1 de Pruebas1",
+          "calle": "Calle 1 de Pruebas1",
+          "portal": "N1",
+          "pisoYmano": "P1izda",
+          "telefonoDeContacto": "3-11-11-11"
+        },
+        {
+          "aliasIdentificativo": "otro1aliasDePrueba1",
+          "poblacion": "11111 - Pueblo 1 de Pruebas",
+          "zonaOpoligono": "otro1Poligono 1 de Pruebas1",
+          "calle": "otra1Calle 1 de Pruebas1",
+          "portal": "N1",
+          "pisoYmano": "P1izda",
+          "telefonoDeContacto": "3-11-11-11"
+        }
+      ]
+    },
+    "destino": {
+      "aliasIdentificativo": "aliasDePrueba1",
+      "poblacion": "11111 - Pueblo 1 de Pruebas",
+      "zonaOpoligono": "Poligono 1 de Pruebas1",
+      "calle": "Calle 1 de Pruebas1",
+      "portal": "N1",
+      "pisoYmano": "P1izda",
+      "telefonoDeContacto": "3-11-11-11"
+    },
+    "lineas": [
+      {
+        "articulo": {
+          "codigoDeArticulo": "A141414141414",
+          "nombreCorto": "Articulo14DePruebas",
+          "descripcionLarga": "Este es el articulo de pruebas 14"
+        },
+        "cantidad": 33
+      },
+      {
+        "articulo": {
+          "codigoDeArticulo": "A131313131313",
+          "nombreCorto": "Articulo13DePruebas",
+          "descripcionLarga": "Este es el articulo de pruebas 13"
+        },
+        "cantidad": 33
+      },
+      {
+        "articulo": {
+          "codigoDeArticulo": "A121212121212",
+          "nombreCorto": "Articulo12DePruebas",
+          "descripcionLarga": "Este es el articulo de pruebas 12"
+        },
+        "cantidad": 33
+      },
+      {
+        "articulo": {
+          "codigoDeArticulo": "A151515151515",
+          "nombreCorto": "Articulo15DePruebas",
+          "descripcionLarga": "Este es el articulo de pruebas 15"
+        },
+        "cantidad": 33
+      },
+      {
+        "articulo": {
+          "codigoDeArticulo": "A111111111111",
+          "nombreCorto": "Articulo11DePruebas",
+          "descripcionLarga": "Este es el articulo de pruebas 11"
+        },
+        "cantidad": 33
+      }
+    ]
+  }
+]
