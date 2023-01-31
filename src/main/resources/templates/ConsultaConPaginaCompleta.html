@@ -9,7 +9,7 @@
         />
         <meta name="author" content="Juan Murua Olalde" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="../css/style.css" />
     </head>
 
     <body>
@@ -18,7 +18,19 @@
         </header>
 
         <main>
-            <h2>Ultimos albaranes registrados</h2>
+            <form class="enmarcado_dentro_de_una_caja" action="#" method="post" th:action="@{/ConsultaConPaginaCompleta}">
+                <p>
+                    <label for="cuantosAlbaranes"
+                        >Se van a listar los últimos:
+                        <input type="text" pattern="[0-9]?" th:value="${cuantosAlbaranes}" id="cuantosAlbaranes" name="cuantosAlbaranes" size="5" required>
+                        albaranes.
+                    </label>
+                </p>
+                <p>
+                    <input type="submit" value="Obtener albaranes">
+                </p>
+            </form>
+            <br>
             <table>
                 <thead>
                     <th>numero</th>
@@ -35,7 +47,8 @@
                     </td>
                 </tr>
             </table>
-            <hr />
+            <br>
+            <hr>
             <p id="tituloDeLasLineasDeAlbaran">Albarán XXXXXX</p>
             <table th:each="albaran : ${albaranes}" th:attr="id=${albaran.numeroDeAlbaran}" class="tablaAOcultar" hidden>
                 <thead>
@@ -49,16 +62,17 @@
                     <td th:text="${linea.cantidad}" />
                 </tr>
             </table>
+            <br>
         </main>
 
-        <hr />
+        <hr>
         <nav>
             <ul>
                 <li>
-                    <a href="index.html"
+                    <a href="/"
                         ><button type="button">
                             <img
-                                src="images/icons8-home-page-64.png"
+                                src="../images/icons8-home-page-64.png"
                                 alt="Home icon, icono de casita"
                                 width="32"
                                 height="32"
@@ -67,6 +81,6 @@
                 </li>
             </ul>
         </nav>
-        <script th:src="@{js/ConsultaConPaginaCompleta.js}"></script>
+        <script th:src="@{../js/ConsultaConPaginaCompleta.js}"></script>
     </body>
 </html>

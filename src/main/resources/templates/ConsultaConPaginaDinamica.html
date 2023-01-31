@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8" />
-        <title>Consulta de Albaranes (versión "página dinámica")</title>
+        <title>Consulta de Albaranes</title>
         <meta
             name="description"
             content="Consultar los últimos albaranes. Usando javascript en la parte cliente para recuperar datos del servidor y actualizar la página."
@@ -14,16 +14,15 @@
 
     <body>
         <header>
-            <h1>Albaranes</h1>
+            <h1>Albaranes (versión dinámica)</h1>
         </header>
 
         <main>
-            <h2>Ultimos albaranes registrados</h2>
             <form id="frmObtenerAlbaranes" class="enmarcado_dentro_de_una_caja">
                 <p>
                     <label for="cuantosAlbaranes"
                         >Se van a listar los últimos:
-                        <input type="text" pattern="[0-9]?" id="cuantosAlbaranes" name="cuantosAlbaranes" size="8" required />
+                        <input type="text" pattern="[0-9]?" id="cuantosAlbaranes" name="cuantosAlbaranes" size="5" required />
                         albaranes.
                     </label>
                 </p>
@@ -31,6 +30,7 @@
                     <input type="submit" id="btnObtenerAlbaranes" value="Obtener albaranes" />
                 </p>
             </form>
+            <br>
             <table id="tablaDeLosAlbaranes">
                 <thead>
                     <th>numero</th>
@@ -38,18 +38,20 @@
                     <th>para entregar en</th>
                 </thead>
             </table>
-            <hr />
-            <p id="tituloDeLasLineasDeAlbaran">Albarán XXXXXX</p>
-            <table id="tablaDeLasLineasDeAlbaran">
+            <br>
+            <hr>
+            <p id="tituloDelDetalleDeLineas">Albarán XXXXXX</p>
+            <table id="tablaDelDetalleDeLineas">
                 <thead>
                     <th>codigo de artículo</th>
                     <th>artículo</th>
                     <th>cantidad</th>
                 </thead>
             </table>
+            <br>
         </main>
 
-        <hr />
+        <hr>
         <nav>
             <ul>
                 <li>
