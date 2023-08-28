@@ -1,8 +1,8 @@
-package es.susosise.albaranes.albaranes;
+package es.susosise.albaranes.clientes;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface LineaDeAlbaran_persistencia extends JpaRepository<LineaDeAlbaran, Long> {
+public interface Poblaciones_persistencia extends JpaRepository<Poblacion, Long> {
 
     // nota: No es necesario proveer una implementación explícita para este interfaz
     // porque ya lo hace Spring Boot, proporcionando una implementación por defecto

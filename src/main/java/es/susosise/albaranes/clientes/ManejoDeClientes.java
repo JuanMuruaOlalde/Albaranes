@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 public class ManejoDeClientes {
 
     @Autowired
-    Cliente_persistencia clientes;
+    Clientes_persistencia clientes;
 
     @Autowired
-    PuntoDeEntrega_persistencia puntosDeEntrega;
+    PuntosDeEntrega_persistencia puntosDeEntrega;
 
-    public ManejoDeClientes(Cliente_persistencia clientes, PuntoDeEntrega_persistencia puntosDeEntrega) {
+    public ManejoDeClientes(Clientes_persistencia clientes, PuntosDeEntrega_persistencia puntosDeEntrega) {
         this.clientes = clientes;
         this.puntosDeEntrega = puntosDeEntrega;
     }

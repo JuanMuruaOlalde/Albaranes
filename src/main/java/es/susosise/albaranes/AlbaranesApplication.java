@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 
 import es.susosise.albaranes.albaranes.Albaran;
 import es.susosise.albaranes.albaranes.ManejoDeAlbaranes;
-import es.susosise.albaranes.albaranes.ManejoDeAlbaranesParaPruebas;
+import es.susosise.albaranes.albaranes.FactoriaDeAlbaranesParaPruebas;
 
 @SpringBootApplication
 public class AlbaranesApplication {
@@ -19,15 +19,15 @@ public class AlbaranesApplication {
 	@Bean
 	public CommandLineRunner llenarLaBaseDeDatosConDatosParaPruebas(ManejoDeAlbaranes albaranes) {
 		return args -> {
-			Albaran albaran01 = ManejoDeAlbaranesParaPruebas.getAlbaranDePrueba(1);
+			Albaran albaran01 = FactoriaDeAlbaranesParaPruebas.getAlbaranDePrueba(1);
 			if (albaranes.getAlbaran(albaran01.getNumeroDeAlbaran()).isEmpty()) {
 				albaranes.guardar(albaran01);
 			}
-			Albaran albaran02 = ManejoDeAlbaranesParaPruebas.getAlbaranDePrueba(2);
+			Albaran albaran02 = FactoriaDeAlbaranesParaPruebas.getAlbaranDePrueba(2);
 			if (albaranes.getAlbaran(albaran02.getNumeroDeAlbaran()).isEmpty()) {
 				albaranes.guardar(albaran02);
 			}
-			Albaran albaran03 = ManejoDeAlbaranesParaPruebas.getAlbaranDePrueba(3);
+			Albaran albaran03 = FactoriaDeAlbaranesParaPruebas.getAlbaranDePrueba(3);
 			if (albaranes.getAlbaran(albaran03.getNumeroDeAlbaran()).isEmpty()) {
 				albaranes.guardar(albaran03);
 			}

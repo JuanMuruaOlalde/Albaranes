@@ -2,7 +2,7 @@ package es.susosise.albaranes.clientes;
 
 import java.util.HashSet;
 
-public class ManejoDeClientesParaPruebas {
+public class FactoriaDeClientesParaPruebas {
 
     public static Cliente getClienteDePrueba(int n) {
         PuntoDeEntrega puntoDeEntregaPrincipal = getPuntoDeEntregaDePrueba(n);

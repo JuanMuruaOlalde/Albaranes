@@ -1,8 +1,8 @@
-package es.susosise.albaranes.clientes;
+package es.susosise.albaranes.articulos;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PuntoDeEntrega_persistencia extends JpaRepository<PuntoDeEntrega, Long> {
+public interface Articulos_persistencia extends JpaRepository<Articulo, Long> {
 
     // nota: No es necesario proveer una implementación explícita para este interfaz
     // porque ya lo hace Spring Boot, proporcionando una implementación por defecto

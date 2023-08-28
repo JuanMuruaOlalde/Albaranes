@@ -1,6 +1,6 @@
 package es.susosise.albaranes.articulos;
 
-public class ManejoDeArticulosParaPruebas {
+public class FactoriaDeArticulosParaPruebas {
     
     public static Articulo getArticuloDePruebas(int n){
         return new Articulo(

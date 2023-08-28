@@ -1,10 +1,8 @@
-package es.susosise.albaranes.albaranes;
-
-import java.util.Optional;
+package es.susosise.albaranes.clientes;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface Albaran_persistencia extends JpaRepository<Albaran, Long> {
+public interface Clientes_persistencia extends JpaRepository<Cliente, Long> {
 
     // nota: No es necesario proveer una implementación explícita para este interfaz
     // porque ya lo hace Spring Boot, proporcionando una implementación por defecto
@@ -16,6 +14,5 @@ public interface Albaran_persistencia extends JpaRepository<Albaran, Long> {
     // También se pueden añadir ciertas nuevas funciones con solo definir sus
     // signaturas, Spring Boot se encarga de proporcionar su implementación.
     // (https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation)
-    Optional<Albaran> findByNumeroDeAlbaran(String numeroDeAlbaran);
 
 }

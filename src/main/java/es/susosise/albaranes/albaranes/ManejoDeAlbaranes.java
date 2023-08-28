@@ -11,9 +11,9 @@ import org.springframework.stereotype.Service;
 public class ManejoDeAlbaranes {
 
     @Autowired
-    Albaran_persistencia albaranes;
+    Albaranes_persistencia albaranes;
 
-    public ManejoDeAlbaranes(Albaran_persistencia cabeceras) {
+    public ManejoDeAlbaranes(Albaranes_persistencia cabeceras) {
         this.albaranes = cabeceras;
     }
 
