@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es">
     <head>
         <meta charset="utf-8" />
-        <title>Consulta de Albaranes</title>
+        <title>Consulta de Albaranes (desde una App externa)</title>
         <meta
             name="description"
-            content="Consultar los últimos albaranes. Usando javascript en la parte cliente para recuperar datos del servidor y actualizar la página."
+            content="Consultar los últimos albaranes. Desde la parte cliente, usando javascript para recuperar datos del servidor y actualizar la página."
         />
         <meta name="author" content="Juan Murua Olalde" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,7 +14,7 @@
 
     <body>
         <header>
-            <h1>Albaranes (versión dinámica)</h1>
+            <h1>Albaranes (app externa)</h1>
         </header>
 
         <main>
@@ -67,6 +67,6 @@
                 </li>
             </ul>
         </nav>
-        <script th:src="@{js/ConsultaConPaginaDinamica.js}"></script>
+        <script src="js/consultar_albaranes.js"></script>
     </body>
 </html>

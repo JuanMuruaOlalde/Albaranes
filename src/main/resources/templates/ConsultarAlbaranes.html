@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8" />
-        <title>Consulta de Albaranes (versión "página completa")</title>
+        <title>Consulta de Albaranes</title>
         <meta
             name="description"
             content="Consultar los últimos albaranes. Recibiendo la página completa, con todos los datos, directamente desde el servidor."
@@ -18,7 +18,7 @@
         </header>
 
         <main>
-            <form class="enmarcado_dentro_de_una_caja" action="#" method="post" th:action="@{/ConsultaConPaginaCompleta}">
+            <form class="enmarcado_dentro_de_una_caja" action="#" method="post" th:action="@{/ConsultarAlbaranes}">
                 <p>
                     <label for="cuantosAlbaranes"
                         >Se van a listar los últimos:
@@ -81,6 +81,6 @@
                 </li>
             </ul>
         </nav>
-        <script th:src="@{../js/ConsultaConPaginaCompleta.js}"></script>
+        <script th:src="@{../js/ConsultarAlbaranes.js}"></script>
     </body>
 </html>

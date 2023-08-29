@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
 function obtenerAlbaranes() {
     const datos = new FormData(frmObtenerAlbaranes);
     const cuantos = Number(datos.get("cuantosAlbaranes"));
-    fetch("/albaranes/ultimos/" + cuantos)
+    fetch("/albaranes?cuantos=" + cuantos)
         .then((response) => {
             if (!response.ok) {
                 alert("No ha sido posible obtener datos de albaranes:\n" + response.status + " " + response.statusText);

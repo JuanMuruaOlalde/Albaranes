@@ -10,9 +10,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import es.susosise.albaranes.albaranes.ManejoDeAlbaranes;
 import es.susosise.albaranes.albaranes.Albaran;
@@ -24,8 +23,8 @@ public class EndpointsAPI {
     @Autowired
     ManejoDeAlbaranes albaranes;
 
-    @GetMapping("/albaranes/ultimos/{cuantos}")
-    public List<Albaran_dto> enviarDatosDeLosUltimosAlbaranes(@PathVariable int cuantos) {
+    @GetMapping("/albaranes")
+    public List<Albaran_dto> enviarDatosDeLosUltimosAlbaranes(@RequestParam(name = "cuantos") int cuantos)  {
         Page<Albaran> ultimosAlbaranes = albaranes.getUltimosAlbaranes(cuantos);
         ArrayList<Albaran_dto> albaranes_dto = new ArrayList<>();
         for (Albaran albaran : ultimosAlbaranes.toList()) {
