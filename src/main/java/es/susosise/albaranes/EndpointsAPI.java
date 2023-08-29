@@ -9,6 +9,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +25,7 @@ public class EndpointsAPI {
     ManejoDeAlbaranes albaranes;
 
     @GetMapping("/albaranes")
-    public List<Albaran_dto> enviarDatosDeLosUltimosAlbaranes(@RequestParam(name = "cuantos") int cuantos)  {
+    public List<Albaran_dto> enviarDatosDeLosUltimosAlbaranes(@RequestParam(defaultValue = "5") int cuantos)  {
         Page<Albaran> ultimosAlbaranes = albaranes.getUltimosAlbaranes(cuantos);
         ArrayList<Albaran_dto> albaranes_dto = new ArrayList<>();
         for (Albaran albaran : ultimosAlbaranes.toList()) {
