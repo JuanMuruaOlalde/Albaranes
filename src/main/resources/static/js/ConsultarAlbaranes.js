@@ -9,7 +9,7 @@ function mostrarDetallesDelAlbaran(albaran) {
             </thead>
             <tbody>
         `;
-    for(linea of albaran.lineas) {
+    for(let linea of albaran.lineas) {
         detalles += `
             <tr>
                 <td>${linea.articulo.codigoDeArticulo}</td>
@@ -22,5 +22,29 @@ function mostrarDetallesDelAlbaran(albaran) {
             </tbody>
         </table>
         `;
-    document.querySelector("#paraMostrarDetallesDelAlbaran").innerHTML = detalles;
+    document.querySelector("#paraMostrarLineas").innerHTML = detalles;
+    
+    const FaroDePuntaGalea = { lat: 43.37183380126953, lng: -3.035311460494995 };
+    mostrarDestinoEnElMapa(FaroDePuntaGalea);
 }
+
+let map;
+
+async function mostrarDestinoEnElMapa(destino) {
+  const { Map } = await google.maps.importLibrary("maps");
+  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+  map = new Map(document.getElementById("paraMostrarDestino"), {
+    zoom: 4,
+    center: destino,
+    mapId: "DESTINO_DE_ENTREGA_DEL_ALBARAN",
+  });
+
+  const marker = new AdvancedMarkerElement({
+    map: map,
+    position: destino,
+    title: "Destino de entrega del albarán",
+  });
+}
+
+
