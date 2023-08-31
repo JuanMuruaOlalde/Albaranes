@@ -1,6 +1,20 @@
 function mostrarDetallesDelAlbaran(albaran) {
+    mostrarPuntoDeEntregaYProductosAEntregar(albaran);
+    mostrarDestinoEnElMapa({ lat: albaran.destino.latitud, lng: albaran.destino.longitud });
+}
+
+function mostrarPuntoDeEntregaYProductosAEntregar(albaran) {
     let detalles = `
-        <p>${albaran.numeroDeAlbaran}</p>
+        <p><strong>${albaran.numeroDeAlbaran}</strong></p>
+        <div style="margin-left: 3em">
+        <p>${albaran.cliente.nombre}</p>
+        <p>${albaran.destino.zonaOpoligono}</p>
+        <p>${albaran.destino.calle} ${albaran.destino.portal} ; ${albaran.destino.pisoYmano}</p>
+        <p>${albaran.destino.poblacion}</p>
+        <p>Telefono de contacto: ${albaran.destino.telefonoDeContacto}</p>
+        </div>
+        `;
+    detalles += `
         <table>
             <thead>
                 <th>codigo de artículo</th>
@@ -22,10 +36,7 @@ function mostrarDetallesDelAlbaran(albaran) {
             </tbody>
         </table>
         `;
-    document.querySelector("#paraMostrarLineas").innerHTML = detalles;
-    
-    const FaroDePuntaGalea = { lat: 43.37183380126953, lng: -3.035311460494995 };
-    mostrarDestinoEnElMapa(FaroDePuntaGalea);
+    document.querySelector("#paraMostrarDetallesTexto").innerHTML = detalles;
 }
 
 let map;
@@ -34,7 +45,7 @@ async function mostrarDestinoEnElMapa(destino) {
   const { Map } = await google.maps.importLibrary("maps");
   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
-  map = new Map(document.getElementById("paraMostrarDestino"), {
+  map = new Map(document.getElementById("paraMostrarDetallesMapa"), {
     zoom: 18,
     center: destino,
     mapId: "DESTINO_DE_ENTREGA_DEL_ALBARAN",

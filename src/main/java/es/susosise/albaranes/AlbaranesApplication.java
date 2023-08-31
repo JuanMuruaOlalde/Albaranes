@@ -19,6 +19,14 @@ public class AlbaranesApplication {
 	@Bean
 	public CommandLineRunner llenarLaBaseDeDatosConDatosParaPruebas(ManejoDeAlbaranes albaranes) {
 		return args -> {
+			Albaran unAlbaran = FactoriaDeAlbaranesParaPruebas.getUnAlbaranDePruebaRealista();
+			if (albaranes.getAlbaran(unAlbaran.getNumeroDeAlbaran()).isEmpty()) {
+				albaranes.guardar(unAlbaran);
+			}
+			Albaran otroAlbaran = FactoriaDeAlbaranesParaPruebas.getOtroAlbaranDePruebaRealista();
+			if (albaranes.getAlbaran(otroAlbaran.getNumeroDeAlbaran()).isEmpty()) {
+				albaranes.guardar(otroAlbaran);
+			}
 			Albaran albaran01 = FactoriaDeAlbaranesParaPruebas.getAlbaranDePrueba(1);
 			if (albaranes.getAlbaran(albaran01.getNumeroDeAlbaran()).isEmpty()) {
 				albaranes.guardar(albaran01);

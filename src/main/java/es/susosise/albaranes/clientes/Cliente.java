@@ -66,6 +66,10 @@ public class Cliente {
         this.razonSocialPrincipal = razonSocialPrincipal;
     }
 
+    public PuntoDeEntrega getPuntoDeEntregaPrincipal() {
+        return razonSocialPrincipal;
+    }
+
     public Set<PuntoDeEntrega> getOtrosPuntosDeEntrega() {
         return otrosPuntosDeEntrega;
     }

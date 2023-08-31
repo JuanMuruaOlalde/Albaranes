@@ -8,10 +8,26 @@ import es.susosise.albaranes.clientes.FactoriaDeClientesParaPruebas;
 
 public class FactoriaDeAlbaranesParaPruebas {
 
+    public static Albaran getUnAlbaranDePruebaRealista() {
+        Cliente unCliente = FactoriaDeClientesParaPruebas.getUnClienteDePruebaRealista();
+        return new Albaran(
+            "Alb000001/2023", 
+            unCliente, unCliente.getPuntoDeEntregaPrincipal(),
+            FactoriaDeAlbaranesParaPruebas.getUnasCuantasLineasDePrueba(7));
+    }
+
+    public static Albaran getOtroAlbaranDePruebaRealista() {
+        Cliente otroCliente = FactoriaDeClientesParaPruebas.getOtroClienteDePruebaRealista();
+        return new Albaran(
+            "Alb000002/2023", 
+            otroCliente, otroCliente.getPuntoDeEntregaPrincipal(),
+            FactoriaDeAlbaranesParaPruebas.getUnasCuantasLineasDePrueba(8));
+    }
+
     public static Albaran getAlbaranDePrueba(int n) {
         Cliente cliente = FactoriaDeClientesParaPruebas.getClienteDePrueba(n);
         Albaran albaran = new Albaran(
-                "Alb" + n + n + n + n + n + n, cliente, cliente.getRazonSocialPrincipal(),
+                "Alb" + n + n + n + n + n + n, cliente, cliente.getPuntoDeEntregaPrincipal(),
                 FactoriaDeAlbaranesParaPruebas.getUnasCuantasLineasDePrueba(n));
         return albaran;
     }

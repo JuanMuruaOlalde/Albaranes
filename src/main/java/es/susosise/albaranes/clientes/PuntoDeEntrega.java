@@ -22,10 +22,14 @@ public class PuntoDeEntrega {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     Poblacion poblacion;
+
     String zonaOpoligono;
     String calle;
     String portal;
     String pisoYmano;
+
+    Double latitud;
+    Double longitud;
 
     String telefonoDeContacto;
 
@@ -37,14 +41,33 @@ public class PuntoDeEntrega {
     }
 
     public PuntoDeEntrega(String aliasIdentificativo, Poblacion poblacion, String zonaOpoligono,
-            String calle, String portal, String pisoYmano, String telefonoDeContacto) {
+            String calle, String portal, String pisoYmano, String telefonoDeContacto, 
+            Double latitud, Double longitud) {
         this.aliasIdentificativo = aliasIdentificativo;
         this.poblacion = poblacion;
-        this.zonaOpoligono = zonaOpoligono;
         this.calle = calle;
-        this.portal = portal;
-        this.pisoYmano = pisoYmano;
-        this.telefonoDeContacto = telefonoDeContacto;
+        if(zonaOpoligono == null){
+            this.zonaOpoligono = "";
+        } else {
+            this.zonaOpoligono = zonaOpoligono;
+        }
+        if(portal == null){
+            this.portal = "";
+        } else {
+            this.portal = portal;
+        }
+        if(pisoYmano == null){
+            this.pisoYmano = "";
+        } else {
+            this.pisoYmano = pisoYmano;
+        }
+        if(telefonoDeContacto == null){
+            this.telefonoDeContacto = "";
+        } else {
+            this.telefonoDeContacto = telefonoDeContacto;
+        }
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     @Override
@@ -88,6 +111,14 @@ public class PuntoDeEntrega {
         return cliente;
     }
 
+    public Double getLatitud() {
+        return latitud;
+    }
+
+    public Double getLongitud() {
+        return longitud;
+    }
+
     public void setIdInterno(Long idInterno) {
         this.idInterno = idInterno;
     }
@@ -122,6 +153,16 @@ public class PuntoDeEntrega {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    
+
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
+
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
     }
 
     @Override
