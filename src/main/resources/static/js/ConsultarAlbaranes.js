@@ -1,6 +1,6 @@
 function mostrarDetallesDelAlbaran(albaran) {
     let detalles = `
-        <p>Albarán ${albaran.numeroDeAlbaran}</p>
+        <p>${albaran.numeroDeAlbaran}</p>
         <table>
             <thead>
                 <th>codigo de artículo</th>
@@ -35,7 +35,7 @@ async function mostrarDestinoEnElMapa(destino) {
   const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
   map = new Map(document.getElementById("paraMostrarDestino"), {
-    zoom: 4,
+    zoom: 18,
     center: destino,
     mapId: "DESTINO_DE_ENTREGA_DEL_ALBARAN",
   });
@@ -46,5 +46,6 @@ async function mostrarDestinoEnElMapa(destino) {
     title: "Destino de entrega del albarán",
   });
 }
+
 
 

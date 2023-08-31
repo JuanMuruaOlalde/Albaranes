@@ -26,7 +26,7 @@ public class EndpointsApplication {
 
     @GetMapping("/")
     public String mostrarElUltimoAlbaran() {
-        return "redirect:/ConsultarAlbaranes/1";
+        return "redirect:/ConsultarAlbaranes/3";
     }
     @GetMapping("/ConsultarAlbaranes/{cuantosAlbaranes}")
     public String mostrarLosUltimosAlbaranes(@PathVariable(value = "cuantosAlbaranes") int cuantosAlbaranes, Model model) {
