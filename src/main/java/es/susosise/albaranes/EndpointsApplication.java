@@ -21,6 +21,9 @@ public class EndpointsApplication {
     @Autowired
     ManejoDeAlbaranes albaranes;
 
+    @Autowired
+    MisPropiedades mispropiedades;
+
     @GetMapping("/")
     public String mostrarElUltimoAlbaran() {
         return "redirect:/ConsultarAlbaranes/1";
@@ -34,6 +37,7 @@ public class EndpointsApplication {
             albaranes_dto.add(new Albaran_dto(albaran));
         }
         model.addAttribute("albaranes", albaranes_dto);
+        model.addAttribute("myGoogleMapsAPIKey", mispropiedades.getGoogleMapsAPIkey());
         return "ConsultarAlbaranes";
     }
 
