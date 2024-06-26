@@ -11,7 +11,7 @@ public class FactoriaDeAlbaranesParaPruebas {
     public static Albaran getUnAlbaranDePruebaRealista() {
         Cliente unCliente = FactoriaDeClientesParaPruebas.getUnClienteDePruebaRealista();
         return new Albaran(
-            "Alb000001/2023", 
+            "Alb000001-2023", 
             unCliente, unCliente.getPuntoDeEntregaPrincipal(),
             FactoriaDeAlbaranesParaPruebas.getUnasCuantasLineasDePrueba(7));
     }
@@ -19,7 +19,7 @@ public class FactoriaDeAlbaranesParaPruebas {
     public static Albaran getOtroAlbaranDePruebaRealista() {
         Cliente otroCliente = FactoriaDeClientesParaPruebas.getOtroClienteDePruebaRealista();
         return new Albaran(
-            "Alb000002/2023", 
+            "Alb000002-2023", 
             otroCliente, otroCliente.getPuntoDeEntregaPrincipal(),
             FactoriaDeAlbaranesParaPruebas.getUnasCuantasLineasDePrueba(8));
     }
